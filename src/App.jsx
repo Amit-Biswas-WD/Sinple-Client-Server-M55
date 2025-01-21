@@ -1,3 +1,4 @@
+import { toast } from "react-toastify";
 import "./App.css";
 
 function App() {
@@ -19,6 +20,10 @@ function App() {
       .then((res) => res.json())
       .then((data) => {
         console.log(data);
+        if (data.insertedId) {
+          toast("User added successfully");
+          form.reset();
+        }
       });
   };
 
